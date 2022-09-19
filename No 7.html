@@ -1,0 +1,113 @@
+<html>
+
+<head>
+    <script>
+        function validate1() {
+            var name = document.forms["RegForm"]["Name"];
+            var email = document.forms["RegForm"]["EMail"];
+            var phone = document.forms["RegForm"]["mobno"];
+            var what = document.forms["RegForm"]["Subject"];
+            var password = document.forms["RegForm"]["Password"];
+            var address = document.forms["RegForm"]["Address"];
+            var atposition = email.value.indexOf("@");
+            var dotposition = email.value.lastIndexOf(".");
+            if (name.value == "") {
+                alert("Please enter your name.");
+                name.focus();
+                return false;
+            }
+            else if (name.value.length < 6) {
+                alert("Name must be at least 6 characters long.");
+                name.focus();
+                return false;
+            }
+            if (password.value == "") {
+                alert("Please enter your password");
+                password.focus();
+                return false;
+            }
+            else if (password.value.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                password.focus();
+                return false;
+            }
+            if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+                alert("Please enter a valid e-mail address");
+                return false;
+            }
+            if (phone.value == "") {
+                alert("Please enter your Phone number.");
+                phone.focus();
+                return false;
+            }
+            else if (phone.value.length > 10) {
+                alert("Phone Number should contain 10 digits only.");
+                phone.focus();
+                return false;
+            }
+            if (address.value == "") {
+                alert("Please enter your address.");
+                address.focus();
+                return false;
+            }
+            alert("successfully entered");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1 style="text-align: center;">REGISTRATION FORM</h1>
+    <table align="center">
+        <form name="RegForm" action="" onsubmit="return validate1()" method="post">
+            <tr>
+                <td>
+                    <p>Name:
+                </td>
+                <td><input type="text" size="65" name="Name" /></p>
+            </tr>
+            </td>
+            <br />
+            <tr>
+                <td>
+                    <p>Password:
+                </td>
+                <td> <input type="password" size="65" name="Password" /></p>
+            </tr>
+            </td> <br /> <br />
+            <tr>
+                <td>
+                    <p>E-mail Address:
+                </td>
+                <td> <input type="text" size="65" name="EMail" /></p>
+            </tr>
+            </td> <br />
+            <tr>
+                <td>
+                    <p>Mobile No:
+                </td>
+                <td> <input type="number" size="65" name="mobno" /></p>
+            </tr>
+            </td><br />
+            <tr>
+                <td>
+                    <p>Address:
+                </td>
+                <td><input type="text" size="65" name="Address" /></p>
+            </tr>
+            </td><br /><br />
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" name="Submit" /> </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="reset" value="Reset" name="Reset" />
+                <td>
+            </tr>
+            </p>
+    </table>
+    </form>
+</body>
+
+</html>
